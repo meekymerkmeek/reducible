@@ -98,7 +98,7 @@ def find_word(s, hash_table):
 
     while hash_table[index] != "":
         if hash_table[index] == s:
-            return True 
+            return True
         index = (index + step) % size
     return False
 
