@@ -99,8 +99,8 @@ def find_word(s, hash_table):
     while hash_table[index] != "":
         if hash_table[index] == s:
             return True
-        else:
-            index = (index + step) % size
+            
+        index = (index + step) % size
     return False
 
 def is_reducible(s, hash_table, hash_memo):
@@ -137,7 +137,6 @@ def get_longest_words(string_list):
     """
     if not string_list:
         return []
-    
     max_len = max(len(word) for word in string_list)
     longest_words = []
     for word in string_list:
@@ -200,18 +199,18 @@ def main():
         pass
 
     size = len(word_list)
-    N = size * 2
-    while not is_prime(N):
-        N += 1
-    hash_table = [""] * N
+    n = size * 2
+    while not is_prime(n):
+        n += 1
+    hash_table = [""] * n
 
     for word in word_list:
         insert_word(word, hash_table)
 
-    M = int(0.2 * size)
-    while not is_prime(M):
-        M += 1
-    hash_memo = [""] * M
+    m = int(0.2 * size)
+    while not is_prime(m):
+        m += 1
+    hash_memo = [""] * m
 
     reducible_words = []
     for word in word_list:
@@ -222,9 +221,6 @@ def main():
     longest_words.sort()
     for word in longest_words:
         print(word)
-    
-    
-
 
 if __name__ == "__main__":
     main()
